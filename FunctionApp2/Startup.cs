@@ -12,6 +12,7 @@ namespace FunctionApp2
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddTransient<CustomFileProvider>();
+            builder.Services.AddMvcCore().AddRazorRuntimeCompilation();
             builder.Services.AddOptions<MvcRazorRuntimeCompilationOptions>()
                 .Configure<CustomFileProvider>((option, source) =>
                 {
