@@ -10,8 +10,7 @@ namespace ClassLibrary1
 
         public CustomFileProvider()
         {
-            var fileStream = File.OpenRead("helloworld.cshtml");
-            file = new CustomFileInfo("helloworld.cshtml", DateTimeOffset.Now, fileStream);
+
         }
 
         public IDirectoryContents GetDirectoryContents(string subpath)
@@ -21,7 +20,14 @@ namespace ClassLibrary1
 
         public IFileInfo GetFileInfo(string subpath)
         {
-            return file;
+            if (subpath.Contains("helloworld"))
+            {
+                var fileStream = File.OpenRead("helloworld.cshtml");
+                file = new CustomFileInfo("helloworld.cshtml", DateTimeOffset.Now, fileStream);
+                return file;
+            }
+
+            return new NotFoundFileInfo(subpath);
         }
 
         public IChangeToken Watch(string filter)
