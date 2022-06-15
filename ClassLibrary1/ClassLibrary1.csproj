@@ -11,4 +11,10 @@
     <PackageReference Include="Razor.Templating.Core" Version="1.7.1-rc.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="helloworld.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

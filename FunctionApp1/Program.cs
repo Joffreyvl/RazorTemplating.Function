@@ -8,6 +8,7 @@ var host = new HostBuilder()
     .ConfigureServices(services =>
     {
         services.AddTransient<CustomFileProvider>();
+        services.AddMvcCore().AddRazorRuntimeCompilation();
         services.AddOptions<MvcRazorRuntimeCompilationOptions>()
             .Configure<CustomFileProvider>((option, source) =>
             {
